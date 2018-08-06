@@ -1,0 +1,7 @@
+<div class='todo-container'>
+  <ul>
+    {% for todo in todoList %}
+      <li>{{ todo.text }}</li>
+    {% endfor %}
+  </ul>
+</div>

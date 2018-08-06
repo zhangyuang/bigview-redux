@@ -1,4 +1,5 @@
 const Koa = require('koa')
+const path = require('path')
 const app = new Koa()
 const views = require('koa-views')
 const json = require('koa-json')
@@ -22,7 +23,7 @@ app.use(bodyparser({
 }))
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
+app.use(require('koa-static')(path.resolve(__dirname, 'public')))
 
 app.use(async (ctx, next) => {
   ctx.render = function (tpl, data, cb) {
@@ -60,6 +61,6 @@ app.use(api.routes(), api.allowedMethods())
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
-});
+})
 
 module.exports = app

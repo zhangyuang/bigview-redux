@@ -9,6 +9,7 @@
   <meta name="keywords" content="BigPipe,Eggjs,Node">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/stylesheets/todo.css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,11 +32,13 @@
       <div class="col-md-3" role="complementary">
         {# Other Pagelet placeholder #}
         <div class="jumbotron" id="bpmodule-other"></div>
+        <div class="jumbotron" id="todolist"></div>
       </div>
     </div>
   </div>
 
   <script src="/javascripts/bigview.runtime.js"></script>
+
   <script>
     console.log(bigview)  
   </script>
