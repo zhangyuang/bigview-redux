@@ -1,13 +1,14 @@
 'use strict'
 
 const Biglet = require('biglet')
-const myRedux = require('../myRedux')
+const actions = require('./lib/actions')
+const store = require('./lib/store')
 
 class TodoListPagelet extends Biglet {
   constructor () {
     super()
-    const store = myRedux.store
-    this.unsubscribe = store.subscribe(this.changeTodoList.bind(this))
+    this.store = store()
+    this.unsubscribe = this.store.subscribe(this.changeTodoList.bind(this))
     this.root = __dirname
     this.tpl = './index.nj'
     this.name = 'todolist'
@@ -15,18 +16,15 @@ class TodoListPagelet extends Biglet {
   }
 
   changeTodoList () {
-    const store = myRedux.store
-    const state = store.getState()
+    const state = this.store.getState()
     this.data = {
       todoList: state.todos
     }
   }
   async fetch () {
     // use owner dataStore mainData
-    const store = myRedux.store
-    const actions = myRedux.actions
     const text = '测试数据1'
-    store.dispatch(actions.addTodo(text))
+    this.store.dispatch(actions.addTodo(text))
 
     this.unsubscribe()
   }

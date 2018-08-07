@@ -7,9 +7,12 @@ const mainPagelet = require('./main')
 const otherPagelet = require('./other')
 const TodoListPagelet = require('./todoList')
 
+function createBigView (ctx) {
+  return new BigView(ctx)
+}
 async function index (ctx) {
   const bigView = new BigView(ctx)
-
+  // const bigView = createBigView(ctx)
   // set layout
   bigView.layout = layoutPagelet
 
