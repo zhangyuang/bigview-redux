@@ -13,7 +13,7 @@ async function index (ctx) {
   // set layout
   bigView.layout = layoutPagelet
 
-  // set main
+  // set maind
   bigView.main = mainPagelet
 
   // set others

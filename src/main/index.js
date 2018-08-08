@@ -1,20 +1,26 @@
 'use strict'
 
-const Biglet = require('biglet')
+const Biglet = require('../biglet')
 
 const Model = require('./lib/model')
 const fetch = require('./lib/fetch')
 
 class MainPagelet extends Biglet {
-  constructor () {
-    super()
+  constructor (owner) {
+    super(owner)
+
     this.root = __dirname
     this.tpl = './index.nj'
     this.name = 'bpmodule-main'
     this.domid = 'bpmodule-main'
   }
 
+  mainGetData () {
+    const state = this.owner.getState()
+    console.log('在main中获取redux state', state)
+  }
   async fetch () {
+    this.sub(this.mainGetData)
     // 网络请求获取数据
     this._data = await fetch()
     // 公共数据共享
