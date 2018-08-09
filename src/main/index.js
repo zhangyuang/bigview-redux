@@ -4,6 +4,8 @@ const Biglet = require('../biglet')
 
 const Model = require('./lib/model')
 const fetch = require('./lib/fetch')
+const reducer = require('./lib/reducer')
+const actions = require('./lib/actions')
 
 class MainPagelet extends Biglet {
   constructor (owner) {
@@ -13,16 +15,23 @@ class MainPagelet extends Biglet {
     this.tpl = './index.nj'
     this.name = 'bpmodule-main'
     this.domid = 'bpmodule-main'
+
+    this.reducer = reducer
   }
 
   mainGetData () {
     const state = this.owner.getState()
+    this._data = state[this.name]
     console.log('在main中获取redux state', state)
   }
   async fetch () {
     this.sub(this.mainGetData)
     // 网络请求获取数据
-    this._data = await fetch()
+    const data = await fetch()
+    // 更新main中的数据
+    console.log('main获取数据')
+    this.owner.dispatch(actions.initialMain(data))
+
     // 公共数据共享
     this.owner.dataStore.mainData = this._data
   }

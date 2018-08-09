@@ -8,6 +8,7 @@ class TodoListPagelet extends Biglet {
   constructor (owner) {
     super(owner)
     this.reducer = reducer
+
     this.root = __dirname
     this.tpl = './index.nj'
     this.name = 'todolist'
@@ -26,9 +27,8 @@ class TodoListPagelet extends Biglet {
     this.sub(this.changeTodoList)
     // use owner dataStore mainData
     const text = '测试数据1'
-    console.log('添加数据')
+    console.log('todolist中添加数据')
     this.owner.dispatch(actions.addTodo(text))
-    this.unSub()
   }
 }
 

@@ -38,22 +38,21 @@ class Pagelet {
     this.isWriteImmediately = true
   }
 
-  init () {
-    this.sub = (event) => {
-      this.unsubscribe = this.owner.subscribe(event.bind(this))
-    }
-    this.unSub = () => {
-      this.unsubscribe()
-    }
+  // init () {
+  //   this.sub = (event) => {
+  //     this.unsubscribe = this.owner.subscribe(event.bind(this))
+  //   }
+  //   this.unSub = () => {
+  //     this.unsubscribe()
+  //   }
+  // }
+  sub (event) {
+    this.unsubscribe = this.owner.subscribe(event.bind(this))
   }
-  // sub (event) {
-  //   // console.log('this.owner', this.owner.subscribe)
-  //   this.unsubscribe = this.owner.subscribe(event.bind(this))
-  // }
 
-  // unSub () {
-  //   this.unsubscribe()
-  // }
+  unSub () {
+    this.unsubscribe()
+  }
 
   addChild (SubPagelet) {
     if (Object.prototype.toString.call(SubPagelet) === '[object Object]') {
