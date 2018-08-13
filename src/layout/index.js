@@ -1,6 +1,6 @@
 'use strict'
 
-const BigLet = require('../biglet')
+const BigLet = require('biglet')
 const path = require('path')
 
 class LayoutPagelet extends BigLet {

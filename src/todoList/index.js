@@ -1,6 +1,6 @@
 'use strict'
 
-const Biglet = require('../biglet')
+const Biglet = require('biglet')
 const actions = require('./lib/actions')
 const reducer = require('./lib/reducer')
 

@@ -1,6 +1,6 @@
 'use strict'
 
-const Biglet = require('../biglet')
+const Biglet = require('biglet')
 
 const Model = require('./lib/model')
 const fetch = require('./lib/fetch')
