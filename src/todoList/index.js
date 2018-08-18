@@ -27,7 +27,7 @@ class TodoListPagelet extends Biglet {
     this.sub(this.changeTodoList)
     // use owner dataStore mainData
     const text = '测试数据1'
-    console.log('todolist中添加数据')
+    console.log('todolist中获取数据')
     this.owner.dispatch(actions.addTodo(text))
   }
 }

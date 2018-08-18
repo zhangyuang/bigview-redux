@@ -33,7 +33,7 @@ class MainPagelet extends Biglet {
     this.owner.dispatch(actions.initialMain(data))
 
     // 公共数据共享
-    this.owner.dataStore.mainData = this._data
+    this.owner.dataStore.mainData = data
   }
 
   async parse () {

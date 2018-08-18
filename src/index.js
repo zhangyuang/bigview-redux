@@ -1,7 +1,7 @@
 'use strict'
 
 const BigView = require('bigview')
-
+const BigViewRedux = require('bigview-redux')
 const layoutPagelet = require('./layout')
 const mainPagelet = require('./main')
 const otherPagelet = require('./other')
@@ -9,6 +9,7 @@ const TodoListPagelet = require('./todoList')
 
 async function index (ctx) {
   const bigView = new BigView(ctx)
+  bigView.install(BigViewRedux)
   // const bigView = createBigView(ctx)
   // set layout
   bigView.layout = layoutPagelet
